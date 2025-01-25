@@ -20,3 +20,17 @@ def pregunta_04():
     E    4.785714
     Name: c2, dtype: float64
     """
+
+    import pandas as pd
+
+    # Cargar el archivo .tsv
+    df = pd.read_csv('./files/input/tbl0.tsv', delimiter='\t')
+
+    # Agrupar por la columna 'c1' y calcular la media de 'c2'
+    promedios = df.groupby('c1')['c2'].mean()
+
+    # Mostrar el resultado
+    promedios_ordenados = promedios.sort_index()
+    return promedios_ordenados
+
+pregunta_04()

@@ -22,3 +22,16 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
+
+    import pandas as pd
+
+    # Cargar el archivo TSV
+    df = pd.read_csv('./files/input/tbl1.tsv', sep='\t')
+
+    # Crear una nueva columna que contiene las letras ordenadas y unidas por coma
+    df_combined = df.groupby('c0')['c4'].apply(lambda x: ','.join(sorted(','.join(x).split(',')))).reset_index()
+
+    # Mostrar el resultado
+    return df_combined
+
+pregunta_11()

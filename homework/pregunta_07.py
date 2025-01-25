@@ -20,3 +20,16 @@ def pregunta_07():
     E    67
     Name: c2, dtype: int64
     """
+
+    import pandas as pd
+
+    # Cargar el archivo .tsv
+    df = pd.read_csv('./files/input/tbl0.tsv', delimiter='\t')
+
+    # Agrupar por la columna 'c1' y calcular la suma de los valores en 'c2'
+    suma_totales = df.groupby('c1')['c2'].sum()
+
+    suma_totales_ordenadas = suma_totales.sort_index()
+    return suma_totales_ordenadas
+
+pregunta_07()

@@ -20,3 +20,16 @@ def pregunta_05():
     E    9
     Name: c2, dtype: int64
     """
+
+    import pandas as pd
+
+    # Cargar el archivo .tsv
+    df = pd.read_csv('./files/input/tbl0.tsv', delimiter='\t')
+
+    # Agrupar por la columna 'c1' y calcular el valor máximo de 'c2'
+    maximos = df.groupby('c1')['c2'].max()
+
+    maximos_ordenados = maximos.sort_index()
+    return maximos_ordenados
+
+pregunta_05()

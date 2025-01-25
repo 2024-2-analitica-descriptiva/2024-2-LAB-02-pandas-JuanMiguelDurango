@@ -21,3 +21,19 @@ def pregunta_03():
     Name: count, dtype: int64
 
     """
+
+    import pandas as pd
+
+    # Cargar el archivo .tsv
+    df = pd.read_csv('./files/input/tbl0.tsv', delimiter='\t')
+
+    # Contar las frecuencias de las letras en la columna 'c1'
+    frecuencias_letras = df['c1'].value_counts()
+
+    # Ordenar el resultado en orden alfabético
+    frecuencias_letras_ordenadas = frecuencias_letras.sort_index()
+
+    # Mostrar los resultados
+    return frecuencias_letras_ordenadas
+
+pregunta_03()

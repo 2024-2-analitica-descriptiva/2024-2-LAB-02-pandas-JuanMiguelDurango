@@ -22,3 +22,15 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
+    import pandas as pd
+
+    # Cargar el archivo .tsv
+    df = pd.read_csv('./files/input/tbl0.tsv', delimiter='\t')
+
+    # Crear la nueva columna 'suma' con la suma de 'c0' y 'c2'
+    df['suma'] = df['c0'] + df['c2']
+
+    # Mostrar el DataFrame con la nueva columna
+    return df
+
+pregunta_08()
